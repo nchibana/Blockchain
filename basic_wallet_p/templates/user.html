@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="user-names" style="max-height: 400px; overflow: auto">
+            <a href="http://localhost:5000/">
+                <button>Back to Home</button>
+            </a>    
+            <table class="primary" style="width: 100%">
+                <tr>
+                    <td><b>User</b></td>
+                    <td><b>Balance</b></td>
+                </tr>
+                <tr>
+                    <td>{{ users }}</td>
+                    <td>{{ balance }}</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div id="user-transactions" style="max-height: 400px; overflow: auto">
+            <table class="primary" style="width: 100%">
+                <tr>
+                    <td>Credits</td>
+                    <td>Timestamp</td>
+                    <td>Debits</td>
+                    <td>Timestamp</td>
+                </tr>
+                {% for credit in credits %}
+                <tr>
+                    <td>{{ credit[1] }}</td>
+                    <td>{{ credit[2] }}</td>
+                </tr>
+                {% endfor %}
+                {% for debit in debits %}
+                <tr>
+                    <td>{{ debit[1] }}</td>
+                    <td>{{ debit[2] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}
